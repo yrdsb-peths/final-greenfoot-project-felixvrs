@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Felix Wu
+ * @version December 2022
  */
 public class MyWorld extends World
 {
@@ -15,7 +15,16 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        super(500, 650, 1);
+        
+        createStar();
     }
+    
+    public void createStar()
+    {
+        Stars star = new Stars();
+        int x = Greenfoot.getRandomNumber(500);
+        int y = 0;
+        addObject(star, x, y);
+    }  
 }
