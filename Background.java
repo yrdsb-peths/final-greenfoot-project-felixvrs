@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class Background extends World
 {
-    private static final String bgImageName = "space.jpg";
+    private static final String bgImageName = "space.png";
     private static final double scrollSpeed = 2.5;
     private static final int picHeight = (new GreenfootImage(bgImageName)).getHeight();
  
