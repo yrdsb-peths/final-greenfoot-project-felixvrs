@@ -19,5 +19,23 @@ public class Spaceship extends Actor
         int x = getX();
         int y = getY() - speed;
         setLocation(x, y);
+        
+        if(Greenfoot.isKeyDown("left"))
+        {
+            move(-3);
+        }
+        else if(Greenfoot.isKeyDown("right"))
+        {
+            move(3);
+        }
+    }
+    
+    public void shootLaser()
+    {
+        if(Greenfoot.isKeyDown("spacebar"))
+        {
+            World world = (World) getWorld();
+            world.createLaser();
+        }
     }
 }

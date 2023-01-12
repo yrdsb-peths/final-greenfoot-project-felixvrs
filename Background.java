@@ -33,4 +33,11 @@ public class Background extends World
         int speed = 2;
         scroller.scroll(0, -speed);
     }
+    
+    public void createLaser()
+    {
+        Laser laser = new Laser();
+        int x = spaceship.getWidth();
+        
+    }
 }
