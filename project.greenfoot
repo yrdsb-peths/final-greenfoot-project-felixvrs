@@ -1,5 +1,5 @@
 #Greenfoot project file
-class.Laser.image=beeper.png
+class.Laser.image=elephant.png
 class.Spaceship.image=car02-n.png
 dependency1.from=Background
 dependency1.to=Scroller
@@ -7,13 +7,13 @@ dependency1.type=UsesDependency
 dependency2.from=Background
 dependency2.to=Spaceship
 dependency2.type=UsesDependency
-dependency3.from=Background
+dependency3.from=Spaceship
 dependency3.to=Laser
 dependency3.type=UsesDependency
-editor.fx.0.height=689
-editor.fx.0.width=797
-editor.fx.0.x=835
-editor.fx.0.y=41
+editor.fx.0.height=739
+editor.fx.0.width=814
+editor.fx.0.x=916
+editor.fx.0.y=114
 height=1047
 package.numDependencies=3
 package.numTargets=4

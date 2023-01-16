@@ -9,10 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Spaceship extends Actor
 {
     int speed = 2;
-    /**
-     * Act - do whatever the Spaceship wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     public void act() 
     {
         // Spaceship moves at constant speed to keep up with background
@@ -28,14 +25,16 @@ public class Spaceship extends Actor
         {
             move(3);
         }
+        if(Greenfoot.isKeyDown("spacebar"))
+        {
+            shootLaser();
+        }
+        
     }
     
     public void shootLaser()
     {
-        if(Greenfoot.isKeyDown("spacebar"))
-        {
-            World world = (World) getWorld();
-            world.createLaser();
-        }
+        Laser laser = new Laser();
+        getWorld().addObject(laser, getX(), getY() - 40);
     }
 }
