@@ -9,7 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Spaceship extends Actor
 {
     int speed = 2;
+    int fireTimer = 120;
+    boolean canShoot = true;
     
+    public Spaceship()
+    {
+        getImage().scale(50,50);
+    }
     public void act() 
     {
         // Spaceship moves at constant speed to keep up with background
@@ -25,16 +31,29 @@ public class Spaceship extends Actor
         {
             move(3);
         }
-        if(Greenfoot.isKeyDown("spacebar"))
+        if(Greenfoot.isKeyDown("space"))
         {
-            shootLaser();
+            if(canShoot == true)
+            {
+                shootLaser();
+                canShoot = false;
+                fireTimer = 20;
+            }
+            else
+            {
+                if(fireTimer <= 0)
+                {
+                    canShoot = true;
+                }
+            }
         }
-        
+        fireTimer--;
     }
     
     public void shootLaser()
     {
         Laser laser = new Laser();
-        getWorld().addObject(laser, getX(), getY() - 40);
+        getWorld().addObject(laser,getX(),getY()-40);
     }
+     
 }

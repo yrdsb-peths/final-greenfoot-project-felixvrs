@@ -2,7 +2,9 @@
 comment0.target=Laser
 comment0.text=\r\n\ The\ laser\ your\ spaceship\ shoots.\r\n\ \r\n\ @author\ Felix\ Wu\r\n\ @version\ January\ 2023\r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=Laser()
 comment2.params=
-comment2.target=void\ remove()
-numComments=3
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ remove()
+numComments=4

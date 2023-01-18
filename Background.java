@@ -21,6 +21,7 @@ public class Background extends World
         
         Spaceship spaceship = new Spaceship(); 
         addObject(spaceship, 250, 550);
+        
     }
     
     public void act()
@@ -33,5 +34,5 @@ public class Background extends World
         int speed = 2;
         scroller.scroll(0, -speed);
     }
-   
+    
 }

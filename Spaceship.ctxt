@@ -2,7 +2,9 @@
 comment0.target=Spaceship
 comment0.text=\r\n\ The\ player's\ vehicle,\ a\ spaceship.\ Defeat\ your\ enemies\ by\ shooting\ lasers\!\r\n\ \r\n\ @author\ Felix\ Wu\r\n\ @version\ January\ 2023\r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=Spaceship()
 comment2.params=
-comment2.target=void\ shootLaser()
-numComments=3
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ shootLaser()
+numComments=4
