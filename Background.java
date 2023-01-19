@@ -22,6 +22,8 @@ public class Background extends World
         Spaceship spaceship = new Spaceship(); 
         addObject(spaceship, 250, 550);
         
+        Yellow yellow = new Yellow();
+        addObject(yellow, 250, 150);
     }
     
     public void act()

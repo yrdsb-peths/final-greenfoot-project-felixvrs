@@ -25,11 +25,11 @@ public class Spaceship extends Actor
         
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-3);
+            move(-4);
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(3);
+            move(4);
         }
         if(Greenfoot.isKeyDown("space"))
         {

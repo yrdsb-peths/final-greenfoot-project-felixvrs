@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Green
+comment0.text=\r\n\ Green\ alien.\r\n\ \r\n\ @author\ Felix\ Wu\r\n\ @version\ January\ 2023\r\n
+comment1.params=
+comment1.target=Green()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ animateG()
+numComments=4

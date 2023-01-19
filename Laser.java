@@ -19,14 +19,13 @@ public class Laser extends Actor
         int x = getX();
         int y = getY() - laserSpeed;
         setLocation(x,y);
-    }    
-    
-    public void remove()
-    {
+        
         World world = (World) getWorld();
         if(getY() >= world.getHeight())
         {
             world.removeObject(this);
         }
-    }
+    } 
+    
+    
 }

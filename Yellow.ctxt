@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Yellow
+comment0.text=\r\n\ Yellow\ alien.\r\n\ \r\n\ @author\ Felix\ Wu\ \r\n\ @version\ January\ 2023\r\n
+comment1.params=
+comment1.target=Yellow()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ animateY()
+comment4.params=
+comment4.target=void\ createExplosion()
+numComments=5
