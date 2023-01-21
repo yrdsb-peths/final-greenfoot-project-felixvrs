@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=Red
-comment0.text=\r\n\ Red\ alien.\r\n\ \r\n\ @author\ Felix\ Wu\r\n\ @version\ January\ 2023\r\n
+comment0.text=\r\n\ Red\ alien.\r\n\ \r\n\ @author\ Felix\ Wu\ \r\n\ @version\ January\ 2023\r\n
 comment1.params=
 comment1.target=Red()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ animateR()
-numComments=4
+comment4.params=
+comment4.target=void\ createExplosion()
+comment5.params=
+comment5.target=void\ randomFire()
+comment6.params=
+comment6.target=void\ shootaLaser()
+numComments=7

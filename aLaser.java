@@ -1,30 +1,30 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The laser your spaceship shoots.
+ * Lasers the aliens fire.
  * 
  * @author Felix Wu
  * @version January 2023
  */
-public class Laser extends Actor
+public class aLaser extends Actor
 {
-    int laserSpeed = 15;
-    public Laser()
+    int aLaserSpeed = 5;
+    public aLaser()
     {
-        getImage().scale(10,20);
+        getImage().scale(13,15);
     }
     
     public void act() 
     {
         int x = getX();
-        int y = getY() - laserSpeed;
+        int y = getY() + aLaserSpeed;
         setLocation(x,y);
         
         World world = (World) getWorld();
-        if(getY() >= world.getHeight())
+        if(getY() <= 0)
         {
             world.removeObject(this);
         }
     } 
-    
 }
+

@@ -1,24 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Creates explosion when laser hits alien.
+ * Creates explosion when spaceship is destroyed.
  * 
  * @author Felix Wu
  * @version January 2023
  */
-public class Explosion extends Actor
+public class sExplosion extends Actor
 {
     GreenfootImage[] animateExplosion = new GreenfootImage[4];
     SimpleTimer explosionTimer = new SimpleTimer();
     
-    public Explosion()
+    public sExplosion()
     {
-        getImage().scale(30,30);
+        getImage().scale(50,50);
         
         for(int i = 0; i < animateExplosion.length; i++)
         {
-            animateExplosion[i] = new GreenfootImage("images/explosion/explosion" + i + ".png");
-            animateExplosion[i].scale(40,40);
+            animateExplosion[i] = new GreenfootImage("images/sExplosion/sExplosion" + i + ".png");
+            animateExplosion[i].scale(50,50);
         }
         explosionTimer.mark();
         
@@ -26,11 +26,11 @@ public class Explosion extends Actor
     
     public void act()
     {
-        explosion();  
+        sExplosion();  
     }
     
     int explosionIndex = 0;
-    public void explosion()
+    public void sExplosion()
     {
         if(explosionTimer.millisElapsed() < 150)
         {

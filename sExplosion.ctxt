@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=sExplosion
+comment0.text=\r\n\ Creates\ explosion\ when\ spaceship\ is\ destroyed.\r\n\ \r\n\ @author\ Felix\ Wu\r\n\ @version\ January\ 2023\r\n
+comment1.params=
+comment1.target=sExplosion()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ sExplosion()
+numComments=4

@@ -23,6 +23,10 @@ public class Spaceship extends Actor
         int y = getY() - speed;
         setLocation(x, y);
         
+        if(isAtEdge())
+        {
+            move(0);
+        }
         if(Greenfoot.isKeyDown("left"))
         {
             move(-4);
@@ -37,7 +41,7 @@ public class Spaceship extends Actor
             {
                 shootLaser();
                 canShoot = false;
-                fireTimer = 20;
+                fireTimer = 25;
             }
             else
             {
@@ -48,6 +52,14 @@ public class Spaceship extends Actor
             }
         }
         fireTimer--;
+        
+        if(isTouching(aLaser.class))
+        {
+            removeTouching(aLaser.class);
+            createsExplosion();
+            World world = (World) getWorld();
+            world.removeObject(this);
+        }
     }
     
     public void shootLaser()
@@ -56,4 +68,9 @@ public class Spaceship extends Actor
         getWorld().addObject(laser,getX(),getY()-40);
     }
      
+    public void createsExplosion()
+    {
+        sExplosion explosion = new sExplosion();
+        getWorld().addObject(explosion,getX(),getY());
+    }
 }
