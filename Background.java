@@ -22,6 +22,8 @@ public class Background extends World
         Spaceship spaceship = new Spaceship(); 
         addObject(spaceship, 250, 550);
         
+        Stage stage = new Stage();
+        addObject(stage, 100, 100);
     }
     
     public void act()

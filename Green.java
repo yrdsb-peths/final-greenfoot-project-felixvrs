@@ -10,9 +10,11 @@ public class Green extends Actor
 {
     int speed = 2;
     GreenfootImage[] animateGreen = new GreenfootImage[2];
+    GreenfootImage[] animateBlue = new GreenfootImage[2];
     SimpleTimer animationTimer = new SimpleTimer();
-    boolean hasExploded = false;
+    SimpleTimer animationTimer2 = new SimpleTimer();
     boolean canShoot = true;
+    boolean beenHit = false;
     int fireTimer = 120;
     
     public Green()
@@ -25,7 +27,13 @@ public class Green extends Actor
             animateGreen[i].scale(40,40);
         }
         animationTimer.mark();
-
+        
+        for(int i = 0; i < animateBlue.length; i++)
+        {
+            animateBlue[i] = new GreenfootImage("images/blue/blue" + i + ".png");
+            animateBlue[i].scale(40,40);
+        }
+        animationTimer2.mark();
     }
     public void act()
     {
@@ -33,34 +41,42 @@ public class Green extends Actor
         int y = getY() - speed;
         setLocation(x, y);
         
-        if(hasExploded == false)
+        if(canShoot == true)
         {
-            if(canShoot == true)
+            randomFire();
+            canShoot = false;
+            fireTimer = 25;
+        }
+        else
+        {
+            if(fireTimer <= 0)
             {
-                randomFire();
-                canShoot = false;
-                fireTimer = 25;
-            }
-            else
-            {
-                if(fireTimer <= 0)
-                {
-                    canShoot = true;
-                }
+                canShoot = true;
             }
         }
         fireTimer--;
-        
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
-            createExplosion();
-            hasExploded = true;
-            World world = (World) getWorld();
-            world.removeObject(this);
+            if(beenHit == false)
+            {
+                beenHit = true;
+            }
+            else
+            {
+                createExplosion();
+                World world = (World) getWorld();
+                world.removeObject(this);
+            }
         }
-        
-        animateG();
+        if(beenHit == true)
+        {
+            animationChange();
+        }
+        else
+        {
+           animateG();
+        }
     }
     
     int imageIndex = 0;
@@ -83,7 +99,7 @@ public class Green extends Actor
     
     public void randomFire()
     {
-        int x = Greenfoot.getRandomNumber(35);
+        int x = Greenfoot.getRandomNumber(40);
         if(x == 5)
         {
             shootaLaser();
@@ -94,5 +110,17 @@ public class Green extends Actor
     {
         aLaser alaser = new aLaser();
         getWorld().addObject(alaser,getX(),getY()+30);
+    }
+    
+    int imageChangeIndex = 0;
+    public void animationChange()
+    {
+        if(animationTimer2.millisElapsed() < 350)
+        {
+            return;
+        }
+        animationTimer2.mark();
+        setImage(animateBlue[imageChangeIndex]);
+        imageChangeIndex = (imageChangeIndex + 1) % animateBlue.length;
     }
 }

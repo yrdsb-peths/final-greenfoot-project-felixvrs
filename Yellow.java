@@ -11,7 +11,6 @@ public class Yellow extends Actor
     int speed = 2;
     GreenfootImage[] animateYellow = new GreenfootImage[2];
     SimpleTimer animationTimer = new SimpleTimer();
-    boolean hasExploded = false;
     boolean canShoot = true;
     int fireTimer = 120;
     
@@ -33,20 +32,17 @@ public class Yellow extends Actor
         int y = getY() - speed;
         setLocation(x, y);
         
-        if(hasExploded == false)
+        if(canShoot == true)
         {
-            if(canShoot == true)
+            randomFire();
+            canShoot = false;
+            fireTimer = 25;
+        }
+        else
+        {
+            if(fireTimer <= 0)
             {
-                randomFire();
-                canShoot = false;
-                fireTimer = 25;
-            }
-            else
-            {
-                if(fireTimer <= 0)
-                {
-                    canShoot = true;
-                }
+                canShoot = true;
             }
         }
         fireTimer--;
@@ -55,7 +51,6 @@ public class Yellow extends Actor
         {
             removeTouching(Laser.class);
             createExplosion();
-            hasExploded = true;
             World world = (World) getWorld();
             world.removeObject(this);
         }
@@ -83,7 +78,7 @@ public class Yellow extends Actor
     
     public void randomFire()
     {
-        int x = Greenfoot.getRandomNumber(35);
+        int x = Greenfoot.getRandomNumber(40);
         if(x == 5)
         {
             shootaLaser();
