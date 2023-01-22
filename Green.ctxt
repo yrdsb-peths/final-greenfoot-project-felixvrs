@@ -17,4 +17,6 @@ comment7.params=
 comment7.target=void\ animationChange()
 comment8.params=
 comment8.target=void\ moveGreens()
-numComments=9
+comment9.params=
+comment9.target=void\ increaseScore()
+numComments=10

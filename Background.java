@@ -12,13 +12,15 @@ public class Background extends World
     public static final int HIGH = 650; // world height (viewport)
     
     private Scroller scroller;
-    
     private static final int SPD=1;
     private int num=10;
     private int speed;
     private boolean dir=false;
     private int counter=0;
     private int amntAliens=0;
+    public int score = 0;
+    
+    sLabel scoreLabel;
     
     public Background()
     {
@@ -32,6 +34,9 @@ public class Background extends World
         
         Stage stage = new Stage();
         addObject(stage, 100, 100);
+        
+        scoreLabel = new sLabel("00", 40);
+        addObject(scoreLabel, 460, 40);
     }
     
     public void act()

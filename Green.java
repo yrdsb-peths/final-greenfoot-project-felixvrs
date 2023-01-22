@@ -16,7 +16,6 @@ public class Green extends Actor
     boolean canShoot = true;
     boolean beenHit = false;
     int fireTimer = 120;
-    int fireSpeed = 40;
     
     public Green()
     {
@@ -66,6 +65,7 @@ public class Green extends Actor
             else
             {
                 createExplosion();
+                increaseScore();
                 World world = (World) getWorld();
                 world.removeObject(this);
             }
@@ -100,7 +100,7 @@ public class Green extends Actor
     
     public void randomFire()
     {
-        int x = Greenfoot.getRandomNumber(fireSpeed);
+        int x = Greenfoot.getRandomNumber(40);
         if(x == 5)
         {
             shootaLaser();
@@ -134,5 +134,12 @@ public class Green extends Actor
             background.setDir(background.getDir()?false:true);
             background.setZero();
         }
+    }
+    
+    public void increaseScore()
+    {
+        Background background = (Background) getWorld();
+        background.score+=100;
+        background.scoreLabel.setValue(background.score);
     }
 }

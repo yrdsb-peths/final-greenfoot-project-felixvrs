@@ -27,11 +27,11 @@ public class Spaceship extends Actor
         {
             move(0);
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("left") && (getX() >= 0))
         {
             move(-4);
         }
-        else if(Greenfoot.isKeyDown("right"))
+        else if(Greenfoot.isKeyDown("right") && (getX() <= 500))
         {
             move(4);
         }
@@ -59,6 +59,7 @@ public class Spaceship extends Actor
             createsExplosion();
             World world = (World) getWorld();
             world.removeObject(this);
+            gameOver();
         }
     }
     
@@ -72,5 +73,11 @@ public class Spaceship extends Actor
     {
         sExplosion explosion = new sExplosion();
         getWorld().addObject(explosion,getX(),getY());
+    }
+    
+    private void gameOver()
+    {
+        GameOver gameOver = new GameOver();
+        getWorld().addObject(gameOver,250,325);
     }
 }

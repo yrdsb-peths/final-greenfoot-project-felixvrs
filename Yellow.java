@@ -13,7 +13,6 @@ public class Yellow extends Actor
     SimpleTimer animationTimer = new SimpleTimer();
     boolean canShoot = true;
     int fireTimer = 120;
-    int fireSpeed = 40;
     
     public Yellow()
     {
@@ -52,6 +51,7 @@ public class Yellow extends Actor
         {
             removeTouching(Laser.class);
             createExplosion();
+            increaseScore();
             World world = (World) getWorld();
             world.removeObject(this);
         }
@@ -79,7 +79,7 @@ public class Yellow extends Actor
     
     public void randomFire()
     {
-        int x = Greenfoot.getRandomNumber(fireSpeed);
+        int x = Greenfoot.getRandomNumber(40);
         if(x == 5)
         {
             shootaLaser();
@@ -103,8 +103,10 @@ public class Yellow extends Actor
         }
     }
     
-    public int setFireSpeed(int spd)
+    public void increaseScore()
     {
-        return fireSpeed -= spd;
+        Background background = (Background) getWorld();
+        background.score+=50;
+        background.scoreLabel.setValue(background.score);
     }
 }
