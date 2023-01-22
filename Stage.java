@@ -58,7 +58,7 @@ public class Stage extends Actor
     {
         if(getWorld().getObjects(Green.class).isEmpty() && getWorld().getObjects(Red.class).isEmpty() && getWorld().getObjects(Yellow.class).isEmpty())
         {
-            if(stageTimer.millisElapsed() > 2000)
+            if(stageTimer.millisElapsed() > 1000)
             {
                 makeStage();
                 stageTimer.mark();
