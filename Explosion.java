@@ -8,8 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Explosion extends Actor
 {
-    GreenfootImage[] animateExplosion = new GreenfootImage[4];
+    GreenfootImage[] animateExplosion = new GreenfootImage[5];
     SimpleTimer explosionTimer = new SimpleTimer();
+    int hasExploded = 4;
     
     public Explosion()
     {
@@ -26,7 +27,10 @@ public class Explosion extends Actor
     
     public void act()
     {
-        explosion();  
+        if(hasExploded >= 0)
+        {   
+            explosion();  
+        }
     }
     
     int explosionIndex = 0;
@@ -39,5 +43,6 @@ public class Explosion extends Actor
         explosionTimer.mark();
         setImage(animateExplosion[explosionIndex]);
         explosionIndex = (explosionIndex + 1) % animateExplosion.length;
+        hasExploded--;
     }
 }

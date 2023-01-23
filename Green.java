@@ -34,6 +34,7 @@ public class Green extends Actor
             animateBlue[i].scale(40,40);
         }
         animationTimer2.mark();
+        
     }
     public void act()
     {
@@ -47,14 +48,12 @@ public class Green extends Actor
             canShoot = false;
             fireTimer = 25;
         }
-        else
+        else if(fireTimer <= 0)
         {
-            if(fireTimer <= 0)
-            {
-                canShoot = true;
-            }
+            canShoot = true;
         }
         fireTimer--;
+        
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
@@ -70,6 +69,7 @@ public class Green extends Actor
                 world.removeObject(this);
             }
         }
+        
         if(beenHit == true)
         {
             animationChange();

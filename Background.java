@@ -17,8 +17,8 @@ public class Background extends World
     private int speed;
     private boolean dir=false;
     private int counter=0;
-    private int amntAliens=0;
     public int score = 0;
+    public int scrollSpeed = 2;
     
     sLabel scoreLabel;
     
@@ -36,7 +36,7 @@ public class Background extends World
         addObject(stage, 100, 100);
         
         scoreLabel = new sLabel("00", 40);
-        addObject(scoreLabel, 460, 40);
+        addObject(scoreLabel, 40, 40);
     }
     
     public void act()
@@ -61,12 +61,18 @@ public class Background extends World
         {
             green.moveGreens();
         }
+        
+        if(getObjects(Spaceship.class).isEmpty())
+        {
+            GameOver gameOver = new GameOver();
+            addObject(gameOver, 250, 325);
+            scrollSpeed = 0;
+        }
     }
     
     private void scroll()
     {
-        int speed = 2;
-        scroller.scroll(0, -speed);
+        scroller.scroll(0, -scrollSpeed);
     }
     
     public int getSpeed()

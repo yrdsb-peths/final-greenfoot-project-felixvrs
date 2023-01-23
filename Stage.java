@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Stage extends Actor
 {
     SimpleTimer stageTimer = new SimpleTimer();
+    boolean firstInstance = true;
     
     public Stage()
     {
@@ -17,6 +18,15 @@ public class Stage extends Actor
     
     public void act()
     {
+        if(firstInstance == true)
+        {
+            if(stageTimer.millisElapsed() > 1000)
+            {
+                makeStage();
+                stageTimer.mark();
+                firstInstance = false;
+            }
+        }
         newLevel();
     }
     
@@ -56,7 +66,7 @@ public class Stage extends Actor
     
     public void newLevel()
     {
-        if(getWorld().getObjects(Green.class).isEmpty() && getWorld().getObjects(Red.class).isEmpty() && getWorld().getObjects(Yellow.class).isEmpty())
+        if(getWorld().getObjects(Green.class).isEmpty() && getWorld().getObjects(Red.class).isEmpty() && getWorld().getObjects(Yellow.class).isEmpty() && firstInstance == false)
         {
             if(stageTimer.millisElapsed() > 1000)
             {

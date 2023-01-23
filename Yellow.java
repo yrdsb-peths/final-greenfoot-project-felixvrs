@@ -38,12 +38,9 @@ public class Yellow extends Actor
             canShoot = false;
             fireTimer = 25;
         }
-        else
+        else if(fireTimer <= 0)
         {
-            if(fireTimer <= 0)
-            {
-                canShoot = true;
-            }
+            canShoot = true;
         }
         fireTimer--;
         

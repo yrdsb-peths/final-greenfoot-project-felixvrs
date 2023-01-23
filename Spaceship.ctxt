@@ -9,6 +9,4 @@ comment3.params=
 comment3.target=void\ shootLaser()
 comment4.params=
 comment4.target=void\ createsExplosion()
-comment5.params=
-comment5.target=void\ gameOver()
-numComments=6
+numComments=5

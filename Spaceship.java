@@ -59,7 +59,6 @@ public class Spaceship extends Actor
             createsExplosion();
             World world = (World) getWorld();
             world.removeObject(this);
-            gameOver();
         }
     }
     
@@ -73,11 +72,5 @@ public class Spaceship extends Actor
     {
         sExplosion explosion = new sExplosion();
         getWorld().addObject(explosion,getX(),getY());
-    }
-    
-    private void gameOver()
-    {
-        GameOver gameOver = new GameOver();
-        getWorld().addObject(gameOver,250,325);
     }
 }
