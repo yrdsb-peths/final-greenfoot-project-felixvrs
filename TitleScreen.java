@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
+    GreenfootSound gTheme = new GreenfootSound("gtheme.mp3");
+    
     public TitleScreen()
     {    
         super(500, 650, 1); 
@@ -15,6 +17,7 @@ public class TitleScreen extends World
         logo();
         menu();
         menuScore();
+        gTheme.play();
     }
 
     public void act()

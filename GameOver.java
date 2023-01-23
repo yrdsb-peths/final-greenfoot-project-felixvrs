@@ -1,5 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * Game over screen.
+ * 
+ * @author Felix Wu
+ * @version January 2023
+ */
 public class GameOver extends Actor
 {
     public int scrollSpeed = 2;

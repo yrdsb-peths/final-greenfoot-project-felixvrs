@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Background
-comment0.text=\r\n\ Non-stop\ scrolling\ background.\r\n\ \r\n\ @author\ danpost\ (Greenfoot\ user)\r\n\ @version\ January\ 2023\r\n
+comment0.text=\r\n\ Background.\r\n\ \r\n\ @author\ Felix\ Wu,\ danpost,\ Nosson1459\r\n\ @version\ January\ 2023\r\n
 comment1.params=
 comment1.target=Background()
 comment2.params=

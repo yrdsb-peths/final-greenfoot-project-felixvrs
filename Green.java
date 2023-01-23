@@ -11,6 +11,7 @@ public class Green extends Actor
     int speed = 2;
     GreenfootImage[] animateGreen = new GreenfootImage[2];
     GreenfootImage[] animateBlue = new GreenfootImage[2];
+    GreenfootSound deathSound = new GreenfootSound("death.mp3");
     SimpleTimer animationTimer = new SimpleTimer();
     SimpleTimer animationTimer2 = new SimpleTimer();
     boolean canShoot = true;
@@ -64,6 +65,7 @@ public class Green extends Actor
             else
             {
                 createExplosion();
+                deathSound.play();
                 increaseScore();
                 World world = (World) getWorld();
                 world.removeObject(this);

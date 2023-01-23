@@ -1,9 +1,9 @@
 import greenfoot.*;
 import java.util.List;
 /**
- * Non-stop scrolling background.
+ * Background.
  * 
- * @author danpost (Greenfoot user)
+ * @author Felix Wu, danpost, Nosson1459
  * @version January 2023
  */
 public class Background extends World
@@ -21,6 +21,7 @@ public class Background extends World
     public int scrollSpeed = 2;
     
     sLabel scoreLabel;
+    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
     
     public Background()
     {
@@ -66,6 +67,7 @@ public class Background extends World
         {
             GameOver gameOver = new GameOver();
             addObject(gameOver, 250, 325);
+            gameOverSound.play();
             scrollSpeed = 0;
         }
     }

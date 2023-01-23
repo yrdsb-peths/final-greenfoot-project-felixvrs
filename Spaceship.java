@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Spaceship extends Actor
 {
+    GreenfootSound fireSound = new GreenfootSound("fire.mp3");
     int speed = 2;
     int fireTimer = 120;
     boolean canShoot = true;
@@ -41,7 +42,7 @@ public class Spaceship extends Actor
             {
                 shootLaser();
                 canShoot = false;
-                fireTimer = 25;
+                fireTimer = 40;
             }
             else
             {
@@ -66,6 +67,7 @@ public class Spaceship extends Actor
     {
         Laser laser = new Laser();
         getWorld().addObject(laser,getX(),getY()-40);
+        fireSound.play();
     }
      
     public void createsExplosion()

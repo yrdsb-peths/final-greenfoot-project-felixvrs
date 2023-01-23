@@ -10,6 +10,7 @@ public class Red extends Actor
 {
     int speed = 2;
     GreenfootImage[] animateRed = new GreenfootImage[2];
+    GreenfootSound deathSound = new GreenfootSound("death.mp3");
     SimpleTimer animationTimer = new SimpleTimer();
     boolean canShoot = true;
     int fireTimer = 120;
@@ -47,6 +48,7 @@ public class Red extends Actor
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
+            deathSound.play();
             createExplosion();
             increaseScore();
             World world = (World) getWorld();
