@@ -11,7 +11,7 @@ public class Background extends World
     public static final int WIDE = 500; // world width (viewport)
     public static final int HIGH = 650; // world height (viewport)
     
-    private Scroller scroller;
+    private Scroller scroller; 
     private static final int SPD=1;
     private int num=10;
     private int speed;
@@ -45,24 +45,29 @@ public class Background extends World
         scroll();
         counter++;
         speed=dir?-SPD:SPD;
+        
+        // Move all yellow alien objects horizontally in-sync
         List <Yellow> yellows=getObjects(Yellow.class);
         for(Yellow yellow:yellows)
         {
             yellow.moveYellows();
         }
         
+        // Move all red alien objects horizontally in-sync
         List <Red> reds=getObjects(Red.class);
         for(Red red:reds)
         {
             red.moveReds();
         }
         
+        // Move all green alien objects horizontally in-sync
         List <Green> greens=getObjects(Green.class);
         for(Green green:greens)
         {
             green.moveGreens();
         }
         
+        // If spaceship is destroyed, create game over image and stop world scrolling
         if(getObjects(Spaceship.class).isEmpty())
         {
             GameOver gameOver = new GameOver();

@@ -16,10 +16,12 @@ public class Laser extends Actor
     
     public void act() 
     {
+        // Keeps laser constantly "moving"
         int x = getX();
         int y = getY() - laserSpeed;
         setLocation(x,y);
         
+        // Removes laser object if it reaches the world height
         World world = (World) getWorld();
         if(getY() >= world.getHeight())
         {

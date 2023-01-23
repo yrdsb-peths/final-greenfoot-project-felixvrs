@@ -10,7 +10,7 @@ public class Explosion extends Actor
 {
     GreenfootImage[] animateExplosion = new GreenfootImage[5];
     SimpleTimer explosionTimer = new SimpleTimer();
-    int hasExploded = 4;
+    int hasExploded = 4; // Counter for number of frames in animation
     
     public Explosion()
     {
@@ -27,6 +27,8 @@ public class Explosion extends Actor
     
     public void act()
     {
+        // If counter for animation is 0/if the all the franes in the animation
+        // have each played once, stops the animation from playing again
         if(hasExploded >= 0)
         {   
             explosion();  
@@ -34,6 +36,9 @@ public class Explosion extends Actor
     }
     
     int explosionIndex = 0;
+    /**
+     * Animates the explosion
+     */
     public void explosion()
     {
         if(explosionTimer.millisElapsed() < 150)

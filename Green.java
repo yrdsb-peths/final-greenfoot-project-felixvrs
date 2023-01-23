@@ -37,12 +37,15 @@ public class Green extends Actor
         animationTimer2.mark();
         
     }
+    
     public void act()
     {
+        // Keep alien "moving"
         int x = getX();
         int y = getY() - speed;
         setLocation(x, y);
         
+        // Checks if enough time has passed to attempt to fire a laser
         if(canShoot == true)
         {
             randomFire();
@@ -55,6 +58,8 @@ public class Green extends Actor
         }
         fireTimer--;
         
+        // If green alien is hit by a laser once, it becomes a blue alien 
+        // If it is hit twice, it is "destroyed" and removed from world
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
@@ -72,6 +77,7 @@ public class Green extends Actor
             }
         }
         
+        // Changes to blue alien animation if green alien has "beenHit"
         if(beenHit == true)
         {
             animationChange();
@@ -83,6 +89,9 @@ public class Green extends Actor
     }
     
     int imageIndex = 0;
+    /**
+     * Animates green alien
+     */
     public void animateG()
     {
         if(animationTimer.millisElapsed() < 350)
@@ -94,12 +103,18 @@ public class Green extends Actor
         imageIndex = (imageIndex + 1) % animateGreen.length;
     }
     
+    /**
+     * Creates explosion in the world
+     */
     public void createExplosion()
     {
         Explosion explosion = new Explosion();
         getWorld().addObject(explosion,getX(),getY());
     }
     
+    /**
+     * Randomly fire a laser
+     */
     public void randomFire()
     {
         int x = Greenfoot.getRandomNumber(40);
@@ -109,6 +124,9 @@ public class Green extends Actor
         }
     }
     
+    /**
+     * Creates an alien laser object in the world
+     */
     public void shootaLaser()
     {
         aLaser alaser = new aLaser();
@@ -116,6 +134,9 @@ public class Green extends Actor
     }
     
     int imageChangeIndex = 0;
+    /**
+     * Animates blue alien
+     */
     public void animationChange()
     {
         if(animationTimer2.millisElapsed() < 350)
@@ -127,6 +148,9 @@ public class Green extends Actor
         imageChangeIndex = (imageChangeIndex + 1) % animateBlue.length;
     }
     
+    /**
+     * Move green alien objects horizontally in-sync 
+     */
     public void moveGreens()
     {
         Background background = (Background) getWorld();
@@ -138,6 +162,9 @@ public class Green extends Actor
         }
     }
     
+    /**
+     * Increase score by 100 if you destroy a green alien
+     */
     public void increaseScore()
     {
         Background background = (Background) getWorld();
