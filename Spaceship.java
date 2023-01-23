@@ -24,10 +24,13 @@ public class Spaceship extends Actor
         int y = getY() - speed;
         setLocation(x, y);
         
+        // If spaceship is at the edge of viewport, stops it moving further
         if(isAtEdge())
         {
             move(0);
         }
+        
+        // Spaceship controls
         if(Greenfoot.isKeyDown("left") && (getX() >= 0))
         {
             move(-4);
@@ -36,6 +39,8 @@ public class Spaceship extends Actor
         {
             move(4);
         }
+        
+        // If player clicks space, shoots laser (if timer equals 0)
         if(Greenfoot.isKeyDown("space"))
         {
             if(canShoot == true)
@@ -54,6 +59,8 @@ public class Spaceship extends Actor
         }
         fireTimer--;
         
+        // If spaceship is hit by alien laser, removes it from world and 
+        // creates explosion
         if(isTouching(aLaser.class))
         {
             removeTouching(aLaser.class);
@@ -63,13 +70,19 @@ public class Spaceship extends Actor
         }
     }
     
+    /**
+     * Creates and shoots laser object in the world
+     */
     public void shootLaser()
     {
         Laser laser = new Laser();
         getWorld().addObject(laser,getX(),getY()-40);
         fireSound.play();
     }
-     
+    
+    /**
+     * Creates explosion in the world
+     */
     public void createsExplosion()
     {
         sExplosion explosion = new sExplosion();

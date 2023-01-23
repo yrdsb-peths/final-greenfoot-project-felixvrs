@@ -19,6 +19,7 @@ public class Stage extends Actor
     
     public void act()
     {
+        // Checks if this is the first stage being created
         if(firstInstance == true)
         {
             if(stageTimer.millisElapsed() > 1000)
@@ -32,24 +33,36 @@ public class Stage extends Actor
         newLevel();
     }
     
+    /**
+     * Creates yellow alien
+     */
     public void makeYellow(int x, int y)
     {
         Yellow yellow = new Yellow();
         getWorld().addObject(yellow, x, y);
     }
     
+    /**
+     * Creates red alien
+     */
     public void makeRed(int x, int y)
     {
         Red red = new Red();
         getWorld().addObject(red, x, y);
     }
     
+    /**
+     * Creates green alien
+     */
     public void makeGreen(int x, int y)
     {
         Green green = new Green();
         getWorld().addObject(green, x, y);
     }
     
+    /**
+     * Creates stage of aliens
+     */
     public void makeStage()
     {
         for(int x=0; x<11; x++)
@@ -66,6 +79,9 @@ public class Stage extends Actor
         }
     }
     
+    /**
+     * Creates a new stage if all alien objects are destroyed
+     */
     public void newLevel()
     {
         if(getWorld().getObjects(Green.class).isEmpty() && getWorld().getObjects(Red.class).isEmpty() && getWorld().getObjects(Yellow.class).isEmpty() && firstInstance == false)

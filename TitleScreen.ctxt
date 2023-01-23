@@ -5,6 +5,7 @@ comment1.params=
 comment1.target=TitleScreen()
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ If\ spacebar\ is\ clicked,\ set\ world\ to\ game\ world\r\n
 comment3.params=
 comment3.target=void\ logo()
 comment4.params=

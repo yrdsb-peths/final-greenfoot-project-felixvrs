@@ -27,12 +27,15 @@ public class Yellow extends Actor
         animationTimer.mark();
 
     }
+    
     public void act()
     {
+        // Keep alien "moving"
         int x = getX();
         int y = getY() - speed;
         setLocation(x, y);
         
+        // Checks if enough time has passed to attempt to fire a laser
         if(canShoot == true)
         {
             randomFire();
@@ -45,6 +48,7 @@ public class Yellow extends Actor
         }
         fireTimer--;
         
+        // "Destroys" alien if hit by laser
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
@@ -55,10 +59,14 @@ public class Yellow extends Actor
             world.removeObject(this);
         }
         
+        // Animates alien
         animateY();
     }
     
     int imageIndex = 0;
+    /**
+     * Animates alien
+     */
     public void animateY()
     {
         if(animationTimer.millisElapsed() < 350)
@@ -70,12 +78,18 @@ public class Yellow extends Actor
         imageIndex = (imageIndex + 1) % animateYellow.length;
     }
     
+    /**
+     * Creates explosion in the world
+     */
     public void createExplosion()
     {
         Explosion explosion = new Explosion();
         getWorld().addObject(explosion,getX(),getY());
     }
     
+    /**
+     * Randomly fire a laser
+     */
     public void randomFire()
     {
         int x = Greenfoot.getRandomNumber(40);
@@ -85,12 +99,18 @@ public class Yellow extends Actor
         }
     }
     
+    /**
+     * Creates an alien laser object in the world
+     */
     public void shootaLaser()
     {
         aLaser alaser = new aLaser();
         getWorld().addObject(alaser,getX(),getY()+30);
     }
     
+    /**
+     * Move yellow alien objects horizontally in-sync 
+     */
     public void moveYellows()
     {
         Background background = (Background) getWorld();
@@ -102,6 +122,9 @@ public class Yellow extends Actor
         }
     }
     
+    /**
+     * Increase score by 50 if you destroy a yellow alien
+     */
     public void increaseScore()
     {
         Background background = (Background) getWorld();

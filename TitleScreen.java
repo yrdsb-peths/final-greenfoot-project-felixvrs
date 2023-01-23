@@ -14,12 +14,15 @@ public class TitleScreen extends World
     {    
         super(500, 650, 1); 
 
-        logo();
+        logo(); 
         menu();
         menuScore();
         gTheme.play();
     }
 
+    /**
+     * If spacebar is clicked, set world to game world
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("space"))

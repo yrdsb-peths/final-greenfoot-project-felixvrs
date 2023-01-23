@@ -27,12 +27,15 @@ public class Red extends Actor
         animationTimer.mark();
 
     }
+    
     public void act()
     {
+        // Keep alien "moving"
         int x = getX();
         int y = getY() - speed;
         setLocation(x, y);
         
+        // Checks if enough time has passed to attempt to fire a laser
         if(canShoot == true)
         {
             randomFire();
@@ -45,6 +48,7 @@ public class Red extends Actor
         }
         fireTimer--;
         
+        // "Destroys" alien if hit by laser
         if(isTouching(Laser.class))
         {
             removeTouching(Laser.class);
@@ -59,6 +63,9 @@ public class Red extends Actor
     }
     
     int imageIndex = 0;
+    /**
+     * Animates alien
+     */
     public void animateR()
     {
         if(animationTimer.millisElapsed() < 350)
@@ -70,12 +77,18 @@ public class Red extends Actor
         imageIndex = (imageIndex + 1) % animateRed.length;
     }
     
+    /**
+     * Creates explosion in the world
+     */
     public void createExplosion()
     {
         Explosion explosion = new Explosion();
         getWorld().addObject(explosion,getX(),getY());
     }
     
+    /**
+     * Randomly fire a laser
+     */
     public void randomFire()
     {
         int x = Greenfoot.getRandomNumber(40);
@@ -85,12 +98,18 @@ public class Red extends Actor
         }
     }
     
+    /**
+     * Creates an alien laser object in the world
+     */
     public void shootaLaser()
     {
         aLaser alaser = new aLaser();
         getWorld().addObject(alaser,getX(),getY()+30);
     }
     
+    /**
+     * Move red alien objects horizontally in-sync 
+     */
     public void moveReds()
     {
         Background background = (Background) getWorld();
@@ -102,6 +121,9 @@ public class Red extends Actor
         }
     }
     
+    /**
+     * Increase score by 80 if you destroy a red alien
+     */
     public void increaseScore()
     {
         Background background = (Background) getWorld();
